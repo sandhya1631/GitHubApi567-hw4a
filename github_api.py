@@ -54,3 +54,22 @@ def get_repos(user_id):
         print(f"Error retrieving repositories for user {user_id}: {str(e)}")
     
     return repos
+def print_repo_commits(user_id):
+    """
+    Prints the repositories and commit counts for a GitHub user.
+    
+    Args:
+        user_id (str): GitHub user ID
+    """
+    repos = get_repos(user_id)
+    
+    if not repos:
+        print(f"No repositories found for user {user_id}")
+        return
+    
+    for repo_name, commit_count in repos:
+        print(f"Repo: {repo_name} Number of commits: {commit_count}")
+        if __name__ == "__main__":
+    user_id = input("Enter GitHub user ID: ")
+    print_repo_commits(user_id)
+    
