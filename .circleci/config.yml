@@ -17,7 +17,7 @@ jobs:
           name: Run Tests
           command: |
             source venv/bin/activate  # Activate the virtual environment again
-            pytest testHW04a_API.py --cov=your_project_folder  # Run your tests and collect coverage for your project
+            pytest test_github_api.py --cov=your_project_folder  # Run your tests and collect coverage for your project
 
 workflows:
   version: 2
