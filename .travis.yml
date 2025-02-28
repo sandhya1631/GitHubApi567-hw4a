@@ -1,0 +1,10 @@
+ language: python
+python:
+  - "3.8"
+install:
+  - pip install requests
+  - pip install pytest
+  - pip install pytest-cov
+script:
+  - python -m pytest GitHubApi567-hw4a/test_github_api.py -v
+  - python -m pytest --cov=GitHubApi567-hw4a GitHubApi567-hw4a/test_github_api.py
