@@ -1,4 +1,4 @@
-put code "version: 2.1
+version: 2.1
 
 jobs:
   build:
@@ -6,21 +6,24 @@ jobs:
       - image: circleci/python:3.9  # Use CircleCI's Python image
     steps:
       - checkout  # Check out the source code
+
       - run:
           name: Install Dependencies
           command: |
             python -m venv venv  # Create a virtual environment
             source venv/bin/activate  # Activate the virtual environment
-            pip install -r req.txt  # Install the dependencies from requirements.txt
+            pip install --upgrade pip  # Upgrade pip
+            pip install -r req.txt  # Install dependencies
 
       - run:
           name: Run Tests
           command: |
-            source venv/bin/activate  # Activate the virtual environment again
-            unittest test_github_api.py --cov=your_project_folder  # Run your tests and collect coverage for your project
+            source venv/bin/activate  # Activate the virtual environment
+            python -m unittest discover -s tests -p test_github_api.py  # Run tests
 
 workflows:
   version: 2
   test_pipeline:
     jobs:
       - build
+
