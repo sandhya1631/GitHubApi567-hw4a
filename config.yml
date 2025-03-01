@@ -7,7 +7,7 @@ def get_repos(username):
 import unittest
 from unittest.mock import patch
 
-class TestGitHubAPI(unittest.TestCase):
+class TestGitHubAPI(unittest.TestCase): 
     @patch('your_module.requests.get')
     def test_get_repos(self, mock_get):
         mock_response = [
