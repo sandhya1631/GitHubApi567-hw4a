@@ -1,0 +1,22 @@
+import requests
+
+def get_repos(username):
+    url = f"https://api.github.com/users/{username}/repos"
+    response = requests.get(url)
+    return response.json()
+import unittest
+from unittest.mock import patch
+
+class TestGitHubAPI(unittest.TestCase):
+    @patch('your_module.requests.get')
+    def test_get_repos(self, mock_get):
+        mock_response = [
+            {"name": "repo1"},
+            {"name": "repo2"}
+        ]
+        mock_get.return_value.json.return_value = mock_response
+
+        from your_module import get_repos
+        repos = get_repos("testuser")
+
+        self.assertEqual(repos, mock_response)
