@@ -1,26 +1,20 @@
-put code "version: 2.1
+version: 2.1
 
 jobs:
-  build:
+  test:  # Define a job named "test"
     docker:
-      - image: circleci/python:3.9  # Use CircleCI's Python image
+      - image: circleci/python:3.8  # Use Python 3.8 Docker image
     steps:
-      - checkout  # Check out the source code
+      - checkout  # Check out code from GitHub
       - run:
           name: Install Dependencies
-          command: |
-            python -m venv venv  # Create a virtual environment
-            source venv/bin/activate  # Activate the virtual environment
-            pip install -r reqs.txt  # Install the dependencies from requirements.txt
-
+          command: pip install -r req.txt
       - run:
-          name: Run Tests
-          command: |
-            source venv/bin/activate  # Activate the virtual environment again
-            pytest test_HW_04a_API.py --cov=your_project_folder  # Run your tests and collect coverage for your project
+          name: Run Unit Tests
+          command: python -m unittest discover -s tests  # Update 'tests' if your test directory is different
 
 workflows:
   version: 2
-  test_pipeline:
+  test-workflow:
     jobs:
-      - build
+      - test  # Include the "test" job in the workflow
