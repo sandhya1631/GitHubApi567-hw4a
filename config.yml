@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: pip install -r requirements.txt
+          command: pip install -r req.txt
       - run:
           name: Run tests
           command: python -m unitest.mock discover
