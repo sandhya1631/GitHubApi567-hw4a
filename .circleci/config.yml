@@ -1,21 +1,24 @@
 version: 2.1
 
 jobs:
-  test:  # Define a job named "test"
+  test:
     docker:
-      - image: circleci/python:3.8  # Use Python 3.8 Docker image
+      - image: circleci/python:3.8
     steps:
-      - checkout  # Check out code from GitHub
+      - checkout
       - run:
-          name: Install Dependencies
+          name: Upgrade pip
+          command: python -m pip install --upgrade pip
+      - run:
+          name: Install dependencies
           command: pip install -r req.txt
       - run:
-          name: Run Unit Tests
-          command: python -m unittest discover -s tests  # Update 'tests' if your test directory is different
+          name: Run tests
+          command: python -m unittest discover -s tests  # Adjust the test folder if needed
 
 workflows:
   version: 2
   test-workflow:
     jobs:
-      - test  # Include the "test" job in the workflow
+      - test
 
