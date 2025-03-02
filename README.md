@@ -11,3 +11,5 @@ To ensure the function runs correctly in different environments, I:
 •	Configured a .circleci/config.yml file to install dependencies and execute tests on every push.
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/HEPQft4fEMrhjXpnkVgaFr/S6WUwkwJx1zyVfPQWXqFRW/tree/circleci-project-setup.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/HEPQft4fEMrhjXpnkVgaFr/S6WUwkwJx1zyVfPQWXqFRW/tree/circleci-project-setup)
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/HEPQft4fEMrhjXpnkVgaFr/S6WUwkwJx1zyVfPQWXqFRW/tree/HW04c_Mocking.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/HEPQft4fEMrhjXpnkVgaFr/S6WUwkwJx1zyVfPQWXqFRW/tree/HW04c_Mocking)
