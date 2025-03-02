@@ -11,7 +11,7 @@ jobs:
           command: python -m pip install --upgrade pip
       - run:
           name: Install dependencies
-          command: pip install -r requirements.txt
+          command: pip install -r req.txt
       - run:
           name: Run tests
           command: python -m unittest discover -s tests  # Adjust the test folder if needed
